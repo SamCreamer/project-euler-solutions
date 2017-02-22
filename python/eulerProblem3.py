@@ -11,7 +11,7 @@ def isPrime(n): ## brute force prime method, probably not fastest algorithm
 		return True
 	if n % 2 == 0:
 		return False
-	for i in range(3, int(math.sqrt(n))): # only need to go up the square root of n to test prime
+	for i in range(3, int(math.sqrt(n)) + 1): # only need to go up the square root of n to test prime
 		if n % i == 0:
 			return False
 	return True
