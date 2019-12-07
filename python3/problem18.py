@@ -31,4 +31,4 @@ def solve(tri):
         tri.append([max(float(t0[i]), float(t0[i+1])) + float(t) for i,t in enumerate(t1)])
     return tri[0][0]
 
-print(solve(tri2))
+print(solve(triangle))
