@@ -28,6 +28,10 @@ def solve(tri):
     while len(tri) > 1:
         t0 = tri.pop()
         t1 = tri.pop()
+        for i, t in enumerate(t1):
+            print(i, t)
+        # print(t0)
+        # print(t1)
         tri.append([max(float(t0[i]), float(t0[i+1])) + float(t) for i,t in enumerate(t1)])
     return tri[0][0]
 
