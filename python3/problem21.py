@@ -14,6 +14,8 @@ for i in range(1, 10001):
     if i in checked:
         continue
     fs = sum_of_divisors(i)
+    if i == fs:
+        continue
     if i == sum_of_divisors(fs):
         result += i
         result += fs
