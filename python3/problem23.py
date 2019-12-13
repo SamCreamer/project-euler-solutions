@@ -16,10 +16,34 @@ def abundant(n):
     return sum(proper_divisors(n)) > n
 
 
+def has_array_two_candidates(A, sum_s):
+    l = 0
+    r = len(A) - 1
+
+    while l < r:
+        if (A[l] + A[r] == sum_s):
+            return 1
+        elif (A[l] + A[r] < sum_s):
+            l += 1
+        else:
+            r -= 1
+    return 0
+
+
 abundants = []
 
 for i in range(12, 28124):
     if abundant(i):
         abundants.append(i)
 
-print(abundants)
+non_sum = 0
+
+for i in range(24, 28123 * 2 + 1):
+    for j in abundants:
+        if j >= i:
+            continue
+        for k in abundants:
+            if k >= i:
+                continue
+            if j + k == i:
+                break
