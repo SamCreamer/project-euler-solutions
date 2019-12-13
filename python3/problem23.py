@@ -14,3 +14,12 @@ def abundant(n):
     :return:
     """
     return sum(proper_divisors(n)) > n
+
+
+abundants = []
+
+for i in range(12, 28124):
+    if abundant(i):
+        abundants.append(i)
+
+print(abundants)
