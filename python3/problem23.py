@@ -36,6 +36,7 @@ for i in range(12, 28124):
     if abundant(i):
         abundants.append(i)
 
+abundants.sort()
 non_sum = 0
 
 for i in range(24, 28123 * 2 + 1):
@@ -45,5 +46,9 @@ for i in range(24, 28123 * 2 + 1):
         for k in abundants:
             if k >= i:
                 continue
-            if j + k == i:
+            jk = j + k
+            if jk == i:
+                break
+            elif jk > i:
+                non_sum += jk
                 break
