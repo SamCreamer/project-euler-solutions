@@ -1,3 +1,5 @@
+import itertools
+
 def proper_divisors(n):
     divs = []
     for i in range(1, int(n / 2) + 1):
@@ -16,20 +18,6 @@ def abundant(n):
     return sum(proper_divisors(n)) > n
 
 
-def has_array_two_candidates(A, sum_s):
-    l = 0
-    r = len(A) - 1
-
-    while l < r:
-        if (A[l] + A[r] == sum_s):
-            return 1
-        elif (A[l] + A[r] < sum_s):
-            l += 1
-        else:
-            r -= 1
-    return 0
-
-
 abundants = []
 
 for i in range(12, 28124):
@@ -39,16 +27,11 @@ for i in range(12, 28124):
 abundants.sort()
 non_sum = 0
 
-for i in range(24, 28123 * 2 + 1):
+for i in range(1, 28123 + 1):
     for j in abundants:
-        if j >= i:
-            continue
-        for k in abundants:
-            if k >= i:
-                continue
-            jk = j + k
-            if jk == i:
-                break
-            elif jk > i:
-                non_sum += jk
-                break
+        p = i - j
+        if p in abundants:
+            break
+    non_sum += i
+
+print(non_sum)
