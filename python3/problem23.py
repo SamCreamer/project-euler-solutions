@@ -21,8 +21,9 @@ def abundant(n):
 abundants = []
 
 for i in range(12, 28124):
-    if abundant(i):
-        abundants.append(i)
+    abundants.append(i) if abundant(i) else pass
+    # if abundant(i):
+    #     abundants.append(i)
 
 abundants.sort()
 non_sum = 0
